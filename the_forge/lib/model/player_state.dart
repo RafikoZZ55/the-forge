@@ -41,6 +41,9 @@ class PlayerState {
     _backgrounds.add(background);
   }
 
+  Item getCurrentItem() => _items[_currentItemIndex];
+  Background getCurrentBackground() => _backgrounds[_currentBackgroundIndex];
+
   set currentItemIndex(int index) {
     if (index >= _items.length || index < 0) return;
     _currentItemIndex = index;

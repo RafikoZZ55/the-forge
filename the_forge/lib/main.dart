@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_forge/pages/game_page.dart';
@@ -11,6 +12,14 @@ const Main({ super.key });
 
   @override
   Widget build(BuildContext context){
-    return MaterialApp(home: GamePage());
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: CupertinoColors.placeholderText,
+          brightness: Brightness.dark
+          )),
+      
+      home: GamePage()
+      );
   }
 }

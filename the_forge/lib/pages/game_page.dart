@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:the_forge/data/state/player_state.dart';
 import 'package:the_forge/pages/settings_page.dart';
 import 'package:the_forge/views/collection_view.dart';
 import 'package:the_forge/views/forge_view.dart';
 import 'package:the_forge/views/shop_view.dart';
 
-class GamePage extends StatefulWidget {
+class GamePage extends ConsumerStatefulWidget {
   const GamePage({ super.key });
 
   @override
   _GamePageState createState() => _GamePageState();
 }
 
-class _GamePageState extends State<GamePage> {
+class _GamePageState extends ConsumerState<GamePage> {
   static const List<Widget> views = [
     ShopView(),
     ForgeView(),
@@ -22,7 +24,7 @@ class _GamePageState extends State<GamePage> {
 
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ) {
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -34,7 +36,15 @@ class _GamePageState extends State<GamePage> {
         actionsPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       ),
 
-      body: views[selectedIndex],
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(ref.watch(player).getCurrentBackground().background),
+            fit: BoxFit.cover
+            ),
+        ),
+        child: views[selectedIndex]
+        ),
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
