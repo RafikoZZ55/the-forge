@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:the_forge/views/collection_view.dart';
+import 'package:the_forge/views/forge_view.dart';
+import 'package:the_forge/views/shop_view.dart';
+
+class GamePage extends StatefulWidget {
+  const GamePage({ Key? key }) : super(key: key);
+
+  @override
+  _GamePageState createState() => _GamePageState();
+}
+
+class _GamePageState extends State<GamePage> {
+  static const List<Widget> views = [
+    ShopView(),
+    ForgeView(),
+    CollectionView(),
+  ];
+
+  int selectedIndex = 1;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        actions: [
+          Icon(Icons.settings_rounded)
+        ],
+        actionsPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      ),
+
+      body: views[selectedIndex],
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_rounded), label: "Shop"),
+          BottomNavigationBarItem(icon: Icon(Icons.handyman_rounded), label: "Forge"),
+          BottomNavigationBarItem(icon: Icon(Icons.collections_bookmark_rounded), label: "Collection"),
+        ],
+        currentIndex: selectedIndex,
+        onTap: (value) => setState(() { selectedIndex = value;}),
+        showUnselectedLabels: false,
+      ),
+    );
+  }
+}
