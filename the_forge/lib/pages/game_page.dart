@@ -4,7 +4,7 @@ import 'package:the_forge/views/forge_view.dart';
 import 'package:the_forge/views/shop_view.dart';
 
 class GamePage extends StatefulWidget {
-  const GamePage({ Key? key }) : super(key: key);
+  const GamePage({ super.key });
 
   @override
   _GamePageState createState() => _GamePageState();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ForgeView extends StatelessWidget {
-const ForgeView({ Key? key }) : super(key: key);
+const ForgeView({ super.key });
 
   @override
   Widget build(BuildContext context){

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class CollectionView extends StatelessWidget {
-const CollectionView({ Key? key }) : super(key: key);
+const CollectionView({ super.key });
 
   @override
   Widget build(BuildContext context){
