@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_forge/pages/settings_page.dart';
 import 'package:the_forge/views/collection_view.dart';
 import 'package:the_forge/views/forge_view.dart';
 import 'package:the_forge/views/shop_view.dart';
@@ -25,7 +26,10 @@ class _GamePageState extends State<GamePage> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          Icon(Icons.settings_rounded)
+          IconButton(
+            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),
+            icon: Icon(Icons.settings_rounded),
+            )
         ],
         actionsPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       ),
