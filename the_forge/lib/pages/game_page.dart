@@ -40,7 +40,7 @@ class _GamePageState extends ConsumerState<GamePage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(ref.watch(player).getCurrentBackground().background),
-            fit: BoxFit.cover
+            fit: BoxFit.cover,
             ),
         ),
         child: views[selectedIndex]

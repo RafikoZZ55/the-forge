@@ -5,6 +5,10 @@ const ShopView({ super.key });
 
   @override
   Widget build(BuildContext context){
-    return Container();
+    return Column(
+      children: [
+        
+      ],
+    );
   }
 }
