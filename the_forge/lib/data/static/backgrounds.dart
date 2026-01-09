@@ -9,7 +9,7 @@ final List<Background> staticBackgrounds = [
     ),
     Background(
       name: "Burrned wood", 
-      background: "assets/images/background/burned_wood_background.jpg", 
+      background: "assets/images/backgrounds/burned_wood_background.jpg", 
       price: 15,
     ),
     Background(
@@ -34,7 +34,7 @@ final List<Background> staticBackgrounds = [
     ),
     Background(
       name: "Royal forge", 
-      background: "assets/images/backgrounds/acual_forge.jpg", 
+      background: "assets/images/backgrounds/accual_forge.jpg", 
       price: 2500
     )
   ];

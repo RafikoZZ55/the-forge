@@ -21,6 +21,7 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
   ));
 
   void buyItem({ required Item item}) {
+    if(checkIfPreviousItemWasBought(item: item)) return;
     if(checkIfItemBought(item: item)) return;
     if(state.gold < item.price) return;
 
@@ -32,6 +33,7 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
   }
 
   void buyBackground({ required Background background}) {
+    if(checkIfBackgroundBought(background: background)) return;
     if(checkIfBackgroundBought(background: background)) return;
     if(state.gold < background.price) return;
 
@@ -60,7 +62,17 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
     return state.items.any((invItem) => invItem.name == item.name); 
   }
 
+  bool checkIfPreviousItemWasBought({required Item item}) {
+    return state.items.length != staticItems.indexOf(item);
+  }
+
   bool checkIfBackgroundBought({required Background background}) {
     return state.backgrounds.any((invBackground) => invBackground.name == background.name);
   }
+
+  bool checkIfPreviousBackgroundWasBought({required Background background}) {
+    return state.backgrounds.length != staticBackgrounds.indexOf(background);
+  }
+
+
 }

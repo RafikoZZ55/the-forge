@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:the_forge/components/background_card.dart';
 import 'package:the_forge/components/item_card.dart';
 import 'package:the_forge/data/state/shop_state.dart';
 
@@ -40,12 +41,19 @@ class _ShopViewState extends ConsumerState<ShopView> {
                   itemCount: ref.watch(shop).items.length,
                   itemBuilder: (context, index) => ItemCard(item: ref.watch(shop).items[index]),
                 ),
-                Center(child: Text("Backgrounds"),)
+                 GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.55,
+                    ), 
+                    itemCount: ref.watch(shop).backgrounds.length,
+                    itemBuilder: (context, index) => BackgroundCard(background: ref.watch(shop).backgrounds[index]),
+                  )
               ]
             )
-          )
+          ),
         ],
-      )
+      ),
     );
   }
 }

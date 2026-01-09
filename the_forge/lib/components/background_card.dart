@@ -14,7 +14,25 @@ class _BackgroundCardState extends ConsumerState<BackgroundCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-
+      child: Stack(
+        alignment: AlignmentGeometry.bottomCenter,
+        children: [
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(widget.background.background),
+                fit: BoxFit.cover
+              )
+            ),
+          ),
+          ElevatedButton(
+              onPressed: () => {}, 
+              child: Text("buy ${widget.background.price.toInt()} \$")
+          ),
+        ],
+      ),
     );
   }
 }
