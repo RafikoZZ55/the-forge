@@ -8,14 +8,15 @@ class ItemCard extends ConsumerStatefulWidget {
   final Item item;
 
   @override
-  _ItemCardState createState() => _ItemCardState();
+  createState() => _ItemCardState();
 }
 
 class _ItemCardState extends ConsumerState<ItemCard> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isOwned = ref.watch(player).itmes.any((item) => item.name == widget.item.name);
+    final playerNotifier = ref.read(playerProvider.notifier);
+    final bool isOwned = ref.watch(playerProvider).items.any((invItem) => invItem.name == widget.item.name);
 
     return Card(
         child: Padding(
@@ -40,7 +41,7 @@ class _ItemCardState extends ConsumerState<ItemCard> {
                 style: TextStyle( fontSize: 12),
               ),
               ElevatedButton(
-                onPressed: () => ref.read(player).buyItem(widget.item), 
+                onPressed: () => playerNotifier.buyItem(item: widget.item),
                 child: Text(isOwned ? "Owned": "Buy ${widget.item.price.round()} \$"),
               )
             ],

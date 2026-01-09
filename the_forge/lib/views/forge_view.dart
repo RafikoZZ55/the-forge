@@ -12,12 +12,14 @@ class ForgeView extends ConsumerStatefulWidget {
 class _ForgeViewState extends ConsumerState<ForgeView> {
   @override
   Widget build(BuildContext context) {
+      final playerNotifier = ref.watch(playerProvider);
+
     return Container(
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(ref.watch(player).getCurrentBackground().background),
+          image: AssetImage(playerNotifier.backgrounds[playerNotifier.currentBackgroundIndex].background),
           fit: BoxFit.cover
         )
       ),
@@ -25,7 +27,7 @@ class _ForgeViewState extends ConsumerState<ForgeView> {
         child: SizedBox(
           width: 250,
           child: InkWell(
-            child: Image.asset(ref.watch(player).getCurrentItem().image),
+            child: Image.asset(playerNotifier.items[playerNotifier.currentItemIndex].image),
           ),
         ),
       ),

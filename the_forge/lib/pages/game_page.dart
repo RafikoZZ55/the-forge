@@ -10,7 +10,7 @@ class GamePage extends ConsumerStatefulWidget {
   const GamePage({ super.key });
 
   @override
-  _GamePageState createState() => _GamePageState();
+  createState() => _GamePageState();
 }
 
 class _GamePageState extends ConsumerState<GamePage> {
@@ -27,7 +27,7 @@ class _GamePageState extends ConsumerState<GamePage> {
   Widget build(BuildContext context, ) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${ref.watch(player).gold.round().toString()} 🪙"),
+        title: Text("${ref.watch(playerProvider).gold} 🪙"),
         actions: [
           IconButton(
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),

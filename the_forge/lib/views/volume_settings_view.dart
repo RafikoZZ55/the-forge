@@ -1,10 +1,10 @@
 import "package:flutter/material.dart";
 
 class VolumeSettingsView extends StatefulWidget {
-  const VolumeSettingsView({ Key? key }) : super(key: key);
+  const VolumeSettingsView({ super.key });
 
   @override
-  _VolumeSettingsViewState createState() => _VolumeSettingsViewState();
+  createState() => _VolumeSettingsViewState();
 }
 
 class _VolumeSettingsViewState extends State<VolumeSettingsView> {
