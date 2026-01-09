@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_forge/data/state/player_state.dart';
+import 'package:the_forge/data/state/player_notifier.dart';
 
 class ForgeView extends ConsumerStatefulWidget {
   const ForgeView({super.key});
