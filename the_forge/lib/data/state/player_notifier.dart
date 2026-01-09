@@ -33,7 +33,7 @@ class PlayerNotifier extends StateNotifier<PlayerState> {
   }
 
   void buyBackground({ required Background background}) {
-    if(checkIfBackgroundBought(background: background)) return;
+    if(checkIfPreviousBackgroundWasBought(background: background)) return;
     if(checkIfBackgroundBought(background: background)) return;
     if(state.gold < background.price) return;
 
