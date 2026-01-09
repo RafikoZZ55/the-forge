@@ -27,6 +27,7 @@ class _GamePageState extends ConsumerState<GamePage> {
   Widget build(BuildContext context, ) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("${ref.watch(player).gold.round().toString()} 🪙"),
         actions: [
           IconButton(
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),
@@ -36,15 +37,7 @@ class _GamePageState extends ConsumerState<GamePage> {
         actionsPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       ),
 
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(ref.watch(player).getCurrentBackground().background),
-            fit: BoxFit.cover,
-            ),
-        ),
-        child: views[selectedIndex]
-        ),
+      body:  views[selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

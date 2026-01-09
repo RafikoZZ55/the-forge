@@ -6,9 +6,9 @@ import 'package:the_forge/model/shop.dart';
 final shop = StateProvider<Shop>((ref) => Shop(
   items: [
     Item(
-      name: "Hoe", 
-      description: "Just a hoe some farmer droped by for you to fix", 
-      image: "assets/images/items/hoe.jpg", 
+      name: "Hoe",
+      description: "Just a hoe some farmer droped by for you to fix",
+      image: "assets/images/items/hoe.png", 
       price: 10, 
       goldPerTap: 1
     ),

@@ -5,7 +5,7 @@ import 'package:the_forge/model/item.dart';
 import 'package:the_forge/model/player_state.dart';
 
 final player = StateProvider<PlayerState>((ref) => PlayerState(
-  gold: 15,
+  gold: 150000000,
   items: [
     Item(
       name: "Hoe",
@@ -15,7 +15,7 @@ final player = StateProvider<PlayerState>((ref) => PlayerState(
       goldPerTap: 1
       )
   ],
-  bacgrounds: [
+  backgrounds: [
     Background(
       name: "Dirty stone",
       background: "assets/images/backgrounds/wall_background.jpg", 

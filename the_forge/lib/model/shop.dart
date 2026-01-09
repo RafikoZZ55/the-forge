@@ -9,7 +9,7 @@ class Shop {
     required List<Item> items,
     required List<Background> backgrounds,
   }): assert(backgrounds.isNotEmpty,"shop must have backgrounds to sell"),
-      assert(!items.isNotEmpty,"shop must have items to sell"),
+      assert(items.isNotEmpty,"shop must have items to sell"),
       _itmes = items,
       _backgrounds = backgrounds;
 

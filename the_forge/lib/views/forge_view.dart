@@ -15,6 +15,12 @@ class _ForgeViewState extends ConsumerState<ForgeView> {
     return Container(
       width: double.infinity,
       height: double.infinity,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(ref.watch(player).getCurrentBackground().background),
+          fit: BoxFit.cover
+        )
+      ),
       child: Center(
         child: SizedBox(
           width: 250,

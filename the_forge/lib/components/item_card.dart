@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:the_forge/data/state/player_state.dart';
+import 'package:the_forge/model/item.dart';
+
+class ItemCard extends ConsumerStatefulWidget {
+  const ItemCard({super.key, required this.item} );
+  final Item item;
+
+  @override
+  _ItemCardState createState() => _ItemCardState();
+}
+
+class _ItemCardState extends ConsumerState<ItemCard> {
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isOwned = ref.watch(player).itmes.any((item) => item.name == widget.item.name);
+
+    return Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.item.name,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+              Image.asset(
+                widget.item.image,
+                color: isOwned ? null : Colors.black,
+              ),
+              Text(
+                widget.item.description, 
+                style: TextStyle( fontSize: 12),
+              ),
+              ElevatedButton(
+                onPressed: () => ref.read(player).buyItem(widget.item), 
+                child: Text(isOwned ? "Owned": "Buy ${widget.item.price.round()} \$"),
+              )
+            ],
+          ),
+        ),
+    );
+  }
+}

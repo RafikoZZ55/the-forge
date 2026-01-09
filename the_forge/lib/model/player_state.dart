@@ -11,16 +11,16 @@ class PlayerState {
   PlayerState({
     required double gold,
     required List<Item> items,
-    required List<Background> bacgrounds,
+    required List<Background> backgrounds,
     required int currentItemIndex,
     required int currentBackgroundIndex,
   }) : assert(gold >= 0, "Gold must be positive"),
        assert(items.isNotEmpty, "user must have starter item"),
-       assert(bacgrounds.isNotEmpty,"user must have starter background"),
+       assert(backgrounds.isNotEmpty,"user must have starter background"),
        assert(currentItemIndex >=0 && currentItemIndex < items.length,"item index out of bound"),
-       assert(currentBackgroundIndex >= 0 && currentBackgroundIndex < bacgrounds.length,"background index out of bound"),
+       assert(currentBackgroundIndex >= 0 && currentBackgroundIndex < backgrounds.length,"background index out of bound"),
        _gold = gold,
-       _backgrounds = bacgrounds,
+       _backgrounds = backgrounds,
        _items = items,
        _currentBackgroundIndex = currentBackgroundIndex,
        _currentItemIndex = currentItemIndex;
@@ -31,6 +31,7 @@ class PlayerState {
 
     _gold -= item.price;
     _items.add(item);
+    currentItemIndex = itmes.length - 1;
   }
 
   void buyBackground(Background background) {
@@ -39,6 +40,7 @@ class PlayerState {
 
     _gold -= background.price;
     _backgrounds.add(background);
+    currentBackgroundIndex = backgrounds.length -1;
   }
 
   Item getCurrentItem() => _items[_currentItemIndex];
