@@ -4,15 +4,15 @@ import 'package:the_forge/data/state/player_notifier.dart';
 import 'package:the_forge/data/static/backgrounds.dart';
 import 'package:the_forge/model/background.dart';
 
-class BackgroundCard extends ConsumerStatefulWidget {
-  const BackgroundCard({ super.key, required this.background  });
+class BackgroundCardShop extends ConsumerStatefulWidget {
+  const BackgroundCardShop({ super.key, required this.background  });
   final Background background;
 
   @override
   createState() => _BackgroundCardState();
 }
 
-class _BackgroundCardState extends ConsumerState<BackgroundCard> {
+class _BackgroundCardState extends ConsumerState<BackgroundCardShop> {
   @override
   Widget build(BuildContext context) {
     final playerNotifier = ref.read(playerProvider.notifier);

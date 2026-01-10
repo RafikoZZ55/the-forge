@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_forge/components/background_card.dart';
-import 'package:the_forge/components/item_card.dart';
+import 'package:the_forge/components/background_card_shop.dart';
+import 'package:the_forge/components/item_card_shop.dart';
 import 'package:the_forge/data/state/shop_state.dart';
 
 class ShopView extends ConsumerStatefulWidget {
@@ -39,7 +39,7 @@ class _ShopViewState extends ConsumerState<ShopView> {
                     childAspectRatio: 0.55
                   ),
                   itemCount: ref.watch(shop).items.length,
-                  itemBuilder: (context, index) => ItemCard(item: ref.watch(shop).items[index]),
+                  itemBuilder: (context, index) => ItemCardShop(item: ref.watch(shop).items[index]),
                 ),
                  GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -47,7 +47,7 @@ class _ShopViewState extends ConsumerState<ShopView> {
                       childAspectRatio: 0.55,
                     ), 
                     itemCount: ref.watch(shop).backgrounds.length,
-                    itemBuilder: (context, index) => BackgroundCard(background: ref.watch(shop).backgrounds[index]),
+                    itemBuilder: (context, index) => BackgroundCardShop(background: ref.watch(shop).backgrounds[index]),
                   )
               ]
             )

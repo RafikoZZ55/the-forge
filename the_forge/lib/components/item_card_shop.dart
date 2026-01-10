@@ -4,15 +4,15 @@ import 'package:the_forge/data/state/player_notifier.dart';
 import 'package:the_forge/data/static/items.dart';
 import 'package:the_forge/model/item.dart';
 
-class ItemCard extends ConsumerStatefulWidget {
-  const ItemCard({super.key, required this.item} );
+class ItemCardShop extends ConsumerStatefulWidget {
+  const ItemCardShop({super.key, required this.item} );
   final Item item;
 
   @override
   createState() => _ItemCardState();
 }
 
-class _ItemCardState extends ConsumerState<ItemCard> {
+class _ItemCardState extends ConsumerState<ItemCardShop> {
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,6 @@ class _ItemCardState extends ConsumerState<ItemCard> {
             alignment: AlignmentGeometry.center,
             children: [
               Column(
-              
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -51,7 +50,10 @@ class _ItemCardState extends ConsumerState<ItemCard> {
                   )
                 ],
               ),
-              Text((canBuy || isOwned) ? "" : "you need to buy previus item first" ),
+              Text(
+                canBuy || isOwned ? "" : "you need to buy previus item first",
+                textAlign: TextAlign.center,
+                ),
             ],
           ),
         ),

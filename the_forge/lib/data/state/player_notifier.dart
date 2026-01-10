@@ -13,7 +13,7 @@ final playerProvider = StateNotifierProvider<PlayerNotifier, PlayerState>(
 
 class PlayerNotifier extends StateNotifier<PlayerState> {
   PlayerNotifier() : super(PlayerState(
-    gold: 150000000,
+    gold: 15,
     items: [staticItems[0]],
     backgrounds: [staticBackgrounds[0]],
     currentItemIndex: 0,
