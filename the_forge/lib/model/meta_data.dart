@@ -27,8 +27,8 @@ PlayerMetaData({
   required this.soundEffectVolume,
   required this.soundEffectTrack,
   required this.lastTimeLogged,
-}) : assert(themeMusicVolume >= 0 && themeMusicVolume <= 1,"theme music volume isnt valid"),
-     assert(soundEffectVolume >=0 && themeMusicVolume <= 1,"Sound effect volume isnt valid"); 
+}) : assert(themeMusicVolume >= 0 && themeMusicVolume <= 1, "theme music volume isnt valid"),
+     assert(soundEffectVolume >= 0 && soundEffectVolume <= 1, "sound effect volume isnt valid"); 
 
 
 PlayerMetaData copyWith({
@@ -39,11 +39,11 @@ PlayerMetaData copyWith({
   DateTime? lastTimeLogged,
 }) {
   return PlayerMetaData(
-        themeMusicVolume: themeMusicVolume ?? 0.7, 
-        themeMusicTrack: themeMusicTrack ?? 'assets/music/theme.mp3', 
-        soundEffectVolume: soundEffectVolume ?? 0.7, 
-        soundEffectTrack: soundEffectTrack ?? 'assets/music/anvil_sound.mp3', 
-        lastTimeLogged: lastTimeLogged ?? DateTime.now()
+        themeMusicVolume: themeMusicVolume ?? this.themeMusicVolume,
+        themeMusicTrack: themeMusicTrack ?? this.themeMusicTrack,
+        soundEffectVolume: soundEffectVolume ?? this.soundEffectVolume,
+        soundEffectTrack: soundEffectTrack ?? this.soundEffectTrack,
+        lastTimeLogged: lastTimeLogged ?? this.lastTimeLogged,
       );
 }
 }

@@ -33,7 +33,7 @@ class _BackgroundCardState extends ConsumerState<BackgroundCardShop> {
                   image: DecorationImage(
                     image: AssetImage(widget.background.background),
                     fit: BoxFit.cover,
-                    colorFilter: isOwned || canBuy ? null : ColorFilter.mode(Colors.black, BlendMode.src)
+                    colorFilter: isOwned? null : ColorFilter.mode(Colors.black, BlendMode.src)
                   )
                 ),
               ),

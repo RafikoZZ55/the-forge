@@ -11,6 +11,8 @@ class ForgeView extends ConsumerStatefulWidget {
 }
 
 class _ForgeViewState extends ConsumerState<ForgeView> {
+    bool _pressed = false;
+
   @override
   Widget build(BuildContext context) {
     final metaNotifier = ref.read(metaProvider.notifier);
@@ -29,11 +31,17 @@ class _ForgeViewState extends ConsumerState<ForgeView> {
         child: SizedBox(
           width: 250,
           child: InkWell(
-            child: Image.asset(ref.watch(playerProvider).items[ref.watch(playerProvider).currentItemIndex].image),
+            child: AnimatedScale(
+              scale: _pressed ? 0.65 : 1, 
+              duration: Duration(milliseconds: 400),
+              child: Image.asset(ref.watch(playerProvider).items[ref.watch(playerProvider).currentItemIndex].image),
+            ),
             onTap: () => {
               metaNotifier.playSoundEffect(),
               playerNotifier.tapItem(),
             },
+            onTapDown: (_) => setState(() => _pressed = true),
+            onTapUp: (_) => setState(() => _pressed = false),
           ),
         ),
       ),

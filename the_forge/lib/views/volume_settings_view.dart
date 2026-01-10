@@ -31,9 +31,7 @@ class _VolumeSettingsViewState extends ConsumerState<VolumeSettingsView> {
             Slider(
               label: meta.themeMusicVolume.toString(),
               value: meta.themeMusicVolume,
-              onChanged: (value) {
-                metaNotifier.setThemeMusicVolume(value);
-              },
+              onChanged: (value) => metaNotifier.setThemeMusicVolume(value),
               divisions: 10,
               max: 1,
               min: 0,

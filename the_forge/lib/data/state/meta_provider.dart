@@ -15,7 +15,7 @@ final metaProvider = StateNotifierProvider<MetaNotifier, PlayerMetaData>(
         themeMusicVolume: 0.7,
         themeMusicTrack: 'assets/music/theme.mp3',
         soundEffectVolume: 0.7,
-        soundEffectTrack: 'assets/music/anvil_sound.mp3',
+        soundEffectTrack: 'assets/music/bing1-91919.mp3',
         lastTimeLogged: DateTime.now(),
       );
       box.put('meta1', meta);
@@ -35,20 +35,20 @@ class MetaNotifier extends StateNotifier<PlayerMetaData> {
   void setThemeMusicVolume(double volume) {
     state = state.copyWith(themeMusicVolume: volume);
     themePlayer.setVolume(volume);
-    Hive.box('metaBox').put('meta1', state);
+    Hive.box<PlayerMetaData>('metaBox').put('meta1', state);
   }
 
   void setSoundEffectVolume(double volume) {
     state = state.copyWith(soundEffectVolume: volume);
     soundEffectPlayer.setVolume(volume);
-    Hive.box('metaBox').put('meta1', state);
+    Hive.box<PlayerMetaData>('metaBox').put('meta1', state);
   }
 
   Future<void> initThemeMusic() async {
     await themePlayer.setAsset(state.themeMusicTrack);
     await themePlayer.setVolume(state.themeMusicVolume);
-    themePlayer.setLoopMode(LoopMode.one);
     themePlayer.play();
+    themePlayer.setLoopMode(LoopMode.one);
   }
 
   void disposeThemeMusic() {
@@ -60,9 +60,11 @@ class MetaNotifier extends StateNotifier<PlayerMetaData> {
     await soundEffectPlayer.setVolume(state.soundEffectVolume);
   }
 
-  Future<void> playSoundEffect() async {
-    if (soundEffectPlayer.playing) return;
-    await soundEffectPlayer.play();
+  void playSoundEffect() {
+      if(soundEffectPlayer.playing){
+        soundEffectPlayer.seek(Duration.zero);
+      }
+      soundEffectPlayer.play();
   }
 
 }
