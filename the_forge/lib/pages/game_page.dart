@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_forge/data/state/player_notifier.dart';
+import 'package:the_forge/data/state/player_provider.dart';
 import 'package:the_forge/pages/settings_page.dart';
 import 'package:the_forge/views/collection_view.dart';
 import 'package:the_forge/views/forge_view.dart';

@@ -1,9 +1,24 @@
+
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'item.g.dart';
+
+@HiveType(typeId: 2)
 class Item {
 
+@HiveField(0)
 final String _name;
+
+@HiveField(1)
 final String _description;
+
+@HiveField(2)
 final String _image;
+
+@HiveField(3)
 final double _price;
+
+@HiveField(4)
 final double _goldPerTap;
 
 Item ({

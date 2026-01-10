@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_forge/data/state/player_notifier.dart';
-import 'package:the_forge/data/state/sound_effect_notifier.dart';
+import 'package:the_forge/data/state/player_provider.dart';
 
 class ForgeView extends ConsumerStatefulWidget {
   const ForgeView({super.key});
@@ -13,9 +12,6 @@ class ForgeView extends ConsumerStatefulWidget {
 class _ForgeViewState extends ConsumerState<ForgeView> {
   @override
   Widget build(BuildContext context) {
-      final playerNotifier = ref.watch(playerProvider.notifier);
-      final soundEffectNotifier = ref.read(soundEffectProvider.notifier);
-
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -31,8 +27,7 @@ class _ForgeViewState extends ConsumerState<ForgeView> {
           child: InkWell(
             child: Image.asset(ref.watch(playerProvider).items[ref.watch(playerProvider).currentItemIndex].image),
             onTap: () => {
-              playerNotifier.tapItem(),
-              soundEffectNotifier.playSoundEffect()
+            
             },
           ),
         ),

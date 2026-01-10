@@ -1,10 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:the_forge/data/state/theme_music_notifier.dart';
+import 'package:the_forge/model/background.dart';
+import 'package:the_forge/model/item.dart';
+import 'package:the_forge/model/meta_data.dart';
+import 'package:the_forge/model/player_state.dart';
 import 'package:the_forge/pages/game_page.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+
+  Hive.registerAdapter(BackgroundAdapter());
+  Hive.registerAdapter(ItemAdapter());
+  Hive.registerAdapter(PlayerStateAdapter());
+  await Hive.openBox('playerBox');
+
+  Hive.registerAdapter(MetaDataAdapter());
+  await Hive.openBox('metaBox');
+
   runApp(const ProviderScope(child: Main()));
 }
 
@@ -17,10 +31,6 @@ class Main extends ConsumerStatefulWidget {
 
 class _MainState extends ConsumerState<Main> {
 
-  @override void initState() {
-    super.initState();
-    ref.read(themeMusicProvider.notifier).initTheme();
-  }
 
   @override
   Widget build(BuildContext context) {

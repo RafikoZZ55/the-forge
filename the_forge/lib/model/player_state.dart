@@ -1,11 +1,24 @@
+import 'package:hive/hive.dart';
 import 'package:the_forge/model/background.dart';
 import 'package:the_forge/model/item.dart';
 
+part 'player_state.g.dart';
+
+@HiveType(typeId: 0)
 class PlayerState {
+  @HiveField(0)
   double gold;
+
+  @HiveField(1)
   List<Item> items;
+
+  @HiveField(2)
   List<Background> backgrounds;
+
+  @HiveField(3)
   int currentItemIndex;
+
+  @HiveField(4)
   int currentBackgroundIndex;
 
   PlayerState({

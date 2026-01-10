@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_forge/components/background_card_shop.dart';
 import 'package:the_forge/components/item_card_shop.dart';
-import 'package:the_forge/data/state/shop_state.dart';
+import 'package:the_forge/data/state/shop_provider.dart';
 
 class ShopView extends ConsumerStatefulWidget {
 const ShopView({ super.key });

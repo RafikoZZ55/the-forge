@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_forge/components/background_card_collection.dart';
 import 'package:the_forge/components/item_card_collection.dart';
-import 'package:the_forge/data/state/player_notifier.dart';
+import 'package:the_forge/data/state/player_provider.dart';
 
 
 class CollectionView extends ConsumerStatefulWidget {
