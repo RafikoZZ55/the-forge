@@ -6,17 +6,17 @@ part of 'meta_data.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class MetaDataAdapter extends TypeAdapter<MetaData> {
+class MetaDataAdapter extends TypeAdapter<PlayerMetaData> {
   @override
   final int typeId = 3;
 
   @override
-  MetaData read(BinaryReader reader) {
+  PlayerMetaData read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return MetaData(
+    return PlayerMetaData(
       themeMusicVolume: fields[0] as double,
       themeMusicTrack: fields[1] as String,
       soundEffectVolume: fields[2] as double,
@@ -26,7 +26,7 @@ class MetaDataAdapter extends TypeAdapter<MetaData> {
   }
 
   @override
-  void write(BinaryWriter writer, MetaData obj) {
+  void write(BinaryWriter writer, PlayerMetaData obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)

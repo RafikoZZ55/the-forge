@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 part 'meta_data.g.dart';
 
 @HiveType(typeId: 3)
-class MetaData {
+class PlayerMetaData {
 
 @HiveField(0)
 double themeMusicVolume;
@@ -21,7 +21,7 @@ String soundEffectTrack;
 @HiveField(4)
 DateTime lastTimeLogged;
 
-MetaData({
+PlayerMetaData({
   required this.themeMusicVolume,
   required this.themeMusicTrack,
   required this.soundEffectVolume,
@@ -31,14 +31,14 @@ MetaData({
      assert(soundEffectVolume >=0 && themeMusicVolume <= 1,"Sound effect volume isnt valid"); 
 
 
-MetaData copyWith({
+PlayerMetaData copyWith({
   double? themeMusicVolume,
   String? themeMusicTrack,
   double? soundEffectVolume,
   String? soundEffectTrack,
   DateTime? lastTimeLogged,
 }) {
-  return MetaData(
+  return PlayerMetaData(
         themeMusicVolume: themeMusicVolume ?? 0.7, 
         themeMusicTrack: themeMusicTrack ?? 'assets/music/theme.mp3', 
         soundEffectVolume: soundEffectVolume ?? 0.7, 

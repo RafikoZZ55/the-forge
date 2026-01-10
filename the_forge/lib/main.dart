@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:the_forge/data/state/meta_provider.dart';
 import 'package:the_forge/model/background.dart';
 import 'package:the_forge/model/item.dart';
 import 'package:the_forge/model/meta_data.dart';
@@ -14,11 +15,10 @@ void main() async {
   Hive.registerAdapter(BackgroundAdapter());
   Hive.registerAdapter(ItemAdapter());
   Hive.registerAdapter(PlayerStateAdapter());
-  await Hive.openBox('playerBox');
+  await Hive.openBox<PlayerState>('playerBox');
 
   Hive.registerAdapter(MetaDataAdapter());
-  await Hive.openBox('metaBox');
-
+  await Hive.openBox<PlayerMetaData>('metaBox');
   runApp(const ProviderScope(child: Main()));
 }
 
@@ -30,7 +30,20 @@ class Main extends ConsumerStatefulWidget {
 }
 
 class _MainState extends ConsumerState<Main> {
+  late final player = ref.read(metaProvider.notifier);
 
+  @override
+  void initState() {
+    super.initState();
+    player.initThemeMusic();
+    player.initSoundEffect();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    player.disposeThemeMusic();
+  }
 
   @override
   Widget build(BuildContext context) {
