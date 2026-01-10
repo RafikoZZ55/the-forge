@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_riverpod/flutter_riverpod.dart";
+import "package:the_forge/data/state/sound_effect_notifier.dart";
 import "package:the_forge/data/state/theme_music_notifier.dart";
 
 class VolumeSettingsView extends ConsumerStatefulWidget {
@@ -16,6 +17,11 @@ class _VolumeSettingsViewState extends ConsumerState<VolumeSettingsView> {
     final musicThemePlayerNotyfier = ref.read(themeMusicProvider.notifier);
     final musicThemePlayer = ref.watch(themeMusicProvider);
     double themMusicVoulme = 100;
+
+
+    final soundEffectNotifier = ref.read(soundEffectProvider.notifier);
+    final soundEffect = ref.watch(soundEffectProvider);
+    double soundeffectVolume = 100;
 
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -51,9 +57,12 @@ class _VolumeSettingsViewState extends ConsumerState<VolumeSettingsView> {
               ),
             ),
             Slider(
-              label: "",
-              value: 50,
-              onChanged: (value) => {},
+              label: "${soundEffect.volume * 100}",
+              value: soundeffectVolume * 100,
+              onChanged: (value) => {
+                setState(() {themMusicVoulme = value;}),
+                soundEffectNotifier.setVolume(themMusicVoulme)
+              },
               divisions: 10,
               max: 100,
               min: 0,
