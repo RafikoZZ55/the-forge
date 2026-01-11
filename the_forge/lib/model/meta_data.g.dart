@@ -6,7 +6,7 @@ part of 'meta_data.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class MetaDataAdapter extends TypeAdapter<PlayerMetaData> {
+class PlayerMetaDataAdapter extends TypeAdapter<PlayerMetaData> {
   @override
   final int typeId = 3;
 
@@ -47,7 +47,7 @@ class MetaDataAdapter extends TypeAdapter<PlayerMetaData> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MetaDataAdapter &&
+      other is PlayerMetaDataAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

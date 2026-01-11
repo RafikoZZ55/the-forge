@@ -12,18 +12,18 @@ class Background {
   final String _background;
 
   @HiveField(2)
-  final double _price;
+  final int _level;
 
   Background({
     required String name,
     required String background,
-    required double price,
-  }) : assert(price >= 0,"price of bacgrounds need to be bigger or equal to 0"),
+    required int level,
+  }) : assert(level >= 0,"level of bacgrounds need to be bigger or equal to 0"),
        _name = name,
        _background = background,
-       _price = price;
+       _level = level;
 
   String get name => _name;
   String get background => _background;
-  double get price => _price;
+  int get level => _level;
 }

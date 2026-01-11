@@ -27,7 +27,7 @@ class _GamePageState extends ConsumerState<GamePage> {
   Widget build(BuildContext context, ) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("${ref.watch(playerProvider).gold} 🪙"),
+        title: Text("Lvl ${ref.watch(playerProvider).level} | ${ref.watch(playerProvider.notifier).calculateGoldMultiplier()}x | ${ref.watch(playerProvider).gold.toStringAsFixed(1)} 🪙"),
         actions: [
           IconButton(
             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage())),

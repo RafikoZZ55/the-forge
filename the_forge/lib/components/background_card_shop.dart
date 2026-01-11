@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:the_forge/data/state/player_provider.dart';
-import 'package:the_forge/data/static/backgrounds.dart';
 import 'package:the_forge/model/background.dart';
 
 class BackgroundCardShop extends ConsumerStatefulWidget {
@@ -16,8 +15,8 @@ class _BackgroundCardState extends ConsumerState<BackgroundCardShop> {
   @override
   Widget build(BuildContext context) {
     final playerNotifier = ref.read(playerProvider.notifier);
-    bool isOwned = ref.watch(playerProvider).backgrounds.contains(widget.background);
-    bool canBuy = ref.watch(playerProvider).backgrounds.length == staticBackgrounds.indexOf(widget.background);
+    bool isOwned = ref.watch(playerProvider).backgrounds.any((invBackground) => invBackground.name == widget.background.name);
+    bool canBuy = ref.watch(playerProvider).level >= widget.background.level;
 
     return Card(
       child: Stack(
@@ -38,12 +37,12 @@ class _BackgroundCardState extends ConsumerState<BackgroundCardShop> {
                 ),
               ),
               ElevatedButton(
-                  onPressed: () => playerNotifier.buyBackground(background: widget.background), 
-                  child: Text(isOwned ? "Owned" : "buy ${widget.background.price.toInt()} \$")
+                  onPressed: () => playerNotifier.getBackground(background: widget.background), 
+                  child: Text(isOwned ? "Owned" : "get ${widget.background.level}Lvl")
               ),
             ],
           ),
-          Text(canBuy || isOwned ? "" : "you need to buy previous background first",
+          Text(canBuy || isOwned ? "" : "you need to reach ${widget.background.level} first",
           textAlign: TextAlign.center
           ,)
         ],

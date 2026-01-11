@@ -17,7 +17,7 @@ void main() async {
   Hive.registerAdapter(PlayerStateAdapter());
   await Hive.openBox<PlayerState>('playerBox');
 
-  Hive.registerAdapter(MetaDataAdapter());
+  Hive.registerAdapter(PlayerMetaDataAdapter());
   await Hive.openBox<PlayerMetaData>('metaBox');
   runApp(const ProviderScope(child: Main()));
 }

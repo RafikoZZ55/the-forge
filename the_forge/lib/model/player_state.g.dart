@@ -22,13 +22,14 @@ class PlayerStateAdapter extends TypeAdapter<PlayerState> {
       backgrounds: (fields[2] as List).cast<Background>(),
       currentItemIndex: fields[3] as int,
       currentBackgroundIndex: fields[4] as int,
+      level: fields[5] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, PlayerState obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.gold)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class PlayerStateAdapter extends TypeAdapter<PlayerState> {
       ..writeByte(3)
       ..write(obj.currentItemIndex)
       ..writeByte(4)
-      ..write(obj.currentBackgroundIndex);
+      ..write(obj.currentBackgroundIndex)
+      ..writeByte(5)
+      ..write(obj.level);
   }
 
   @override

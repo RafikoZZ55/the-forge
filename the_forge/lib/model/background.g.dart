@@ -19,7 +19,7 @@ class BackgroundAdapter extends TypeAdapter<Background> {
     return Background(
       name: fields[0] as String, 
       background: fields[1] as String, 
-      price: fields[2] as double
+      level: fields[2] as int
     );
   }
 
@@ -32,7 +32,7 @@ class BackgroundAdapter extends TypeAdapter<Background> {
       ..writeByte(1)
       ..write(obj._background)
       ..writeByte(2)
-      ..write(obj._price);
+      ..write(obj._level);
   }
 
   @override

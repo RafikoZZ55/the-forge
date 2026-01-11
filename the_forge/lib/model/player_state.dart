@@ -21,12 +21,16 @@ class PlayerState {
   @HiveField(4)
   int currentBackgroundIndex;
 
+  @HiveField(5)
+  int level;
+
   PlayerState({
     required this.gold,
     required this.items,
     required this.backgrounds,
     required this.currentItemIndex,
     required this.currentBackgroundIndex,
+    required this.level
   }) : assert(gold >= 0, "Gold must be positive"),
        assert(items.isNotEmpty, "user must have starter item"),
        assert(backgrounds.isNotEmpty,"user must have starter background"),
@@ -39,8 +43,10 @@ class PlayerState {
     List<Background>? backgrounds,
     int? currentItemIndex,
     int? currentBackgroundIndex,
+    int ? level,
   }) {
     return PlayerState(
+      level: level ?? this.level,
       gold: gold ?? this.gold, 
       items: items ?? this.items, 
       backgrounds: backgrounds ?? this.backgrounds, 
