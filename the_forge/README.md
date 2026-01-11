@@ -1,31 +1,66 @@
-# the forge 
-the forg is very simple project ment to show proper 
-way on how you should implement riverpod and hive in one project
-using flutter. 
+# The Forge
 
-# whats the goal
-you step in the shoes of a blacksmith in XV century.
-you are trying to build fame and get some money by repairing 
-broken tools once you get richer you can afford better clients
-and buy better forgges with are called backgrounds 
+**The Forge** is a simple single-player Flutter game created as a learning project.
+Its main goal is to demonstrate a clean and practical way of using **Riverpod** for
+state management and **Hive** for local persistance in one Flutter application.
 
-# how to use it 
-since i dont have 25$ to spend on google play store for dev licence
-if you want to play my game you need to install dart then flutter 
-and if you finnish all the steps correctly you should be able to 
-run my app
+The project was built entirely without AI and served as my first serious atempt
+at combining Riverpod with non-primitive Hive data models.
 
-# is it worth it 
-If you are learning flutter I think my app is a good blueprint 
-that shows you how to work with hive and riverpod i personaly think 
-that this isnt something worthy clapps but for a project made 
-100% without ai and it was the first time i used riverpod and hive 
-(i used hive but only to store primitive data so this was a big 
-step up for me) at the same time.
+---
 
-# is flutter worth it 
-if you are a web dev using js/ts flutter will fell familiar but not as
-much as react native. If you want better performence and more structured apps
-that will work on praticly any device go ith Flutter but if you want something 
-easier and if you dont care about making desktop app i sugest you go with
-react native 
+## Game Concept
+
+You step into the shoes of a **blacksmith in the 15th century**.
+Your job is to repair broken tools for clients, earn money, and slowly build your
+reputation over time.
+
+As your fame grows, better clients start to apear, offering more challanging work
+and higher rewards.
+
+---
+
+## Leveling System
+
+The game features a **level-based progression system**.
+
+- Completing repairs grants experience
+- Gaining experience increases your **blacksmith level**
+- Each new level:
+  - Makes smithing easier
+  - Improves efficiency
+  - Unlocks new backgrounds (forges)
+
+Higher levels represent your growing skill and reputation as a blacksmith.
+
+---
+
+## Backgrounds (Forges)
+
+Backgrounds represent different **forges** you can work in.
+
+- New backgrounds are unlocked by reaching higher levels
+- Each forge provides gameplay adventages:
+  - Faster repairs
+  - Better efficiency
+  - Improved working conditions
+
+Progressing through backgrounds visually and mechanically reflects your journey
+from a poor village blacksmith to a respected craftsman.
+
+---
+
+## How to Run the Project
+
+This project is **not published on Google Play** (I cannot currently afford the
+developer licence).
+
+To run the game locally:
+
+1. Install **Dart**
+2. Install **Flutter**
+3. Clone this repository
+4. Run:
+   ```bash
+   flutter pub get
+   flutter run
