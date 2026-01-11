@@ -1,31 +1,24 @@
-# the forge 
-the forg is very simple project ment to show proper 
-way on how you should implement riverpod and hive in one project
-using flutter. 
+# The Forge
 
-# whats the goal
-you step in the shoes of a blacksmith in XV century.
-you are trying to build fame and get some money by repairing 
-broken tools once you get richer you can afford better clients
-and buy better forgges with are called backgrounds 
+The Forge is a very simple project meant to show a proper way to implement **Riverpod** and **Hive** in one Flutter project.  
+It was built 100% without AI and was my first serious attempt at combining Riverpod with non-primitive Hive data models.
 
-# how to use it 
-since i dont have 25$ to spend on google play store for dev licence
-if you want to play my game you need to install dart then flutter 
-and if you finnish all the steps correctly you should be able to 
-run my app
+---
 
-# is it worth it 
-If you are learning flutter I think my app is a good blueprint 
-that shows you how to work with hive and riverpod i personaly think 
-that this isnt something worthy clapps but for a project made 
-100% without ai and it was the first time i used riverpod and hive 
-(i used hive but only to store primitive data so this was a big 
-step up for me) at the same time.
+## What's the Goal
 
-# is flutter worth it 
-if you are a web dev using js/ts flutter will fell familiar but not as
-much as react native. If you want better performence and more structured apps
-that will work on praticly any device go ith Flutter but if you want something 
-easier and if you dont care about making desktop app i sugest you go with
-react native 
+You step into the shoes of a **blacksmith in the 15th century**.  
+Your job is to build fame and earn money by repairing broken tools.  
+Once you get richer, you can afford better clients and buy better forges, which are called **backgrounds**.
+
+---
+
+## How to Use It
+
+Since I don’t have the $25 Google Play developer license, the game isn’t on the Play Store.  
+If you want to play the app locally, you need to:
+
+1. Install **Dart** and **Flutter**  
+2. Clone this repository:
+   ```bash
+   git clone <your-repo-url>
