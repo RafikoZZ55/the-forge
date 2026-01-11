@@ -1,66 +1,43 @@
 # The Forge
 
-**The Forge** is a simple single-player Flutter game created as a learning project.
-Its main goal is to demonstrate a clean and practical way of using **Riverpod** for
-state management and **Hive** for local persistance in one Flutter application.
-
-The project was built entirely without AI and served as my first serious atempt
-at combining Riverpod with non-primitive Hive data models.
+**The Forge** is a single-player Flutter game built as a learning project.  
+It demonstrates **Riverpod** for state management and **Hive** for local persistence with non-primitive data models.  
 
 ---
 
 ## Game Concept
 
-You step into the shoes of a **blacksmith in the 15th century**.
-Your job is to repair broken tools for clients, earn money, and slowly build your
-reputation over time.
+Step into the shoes of a **15th-century blacksmith**:
 
-As your fame grows, better clients start to apear, offering more challanging work
-and higher rewards.
+- Click to **craft and repair tools** to earn **gold**
+- Buy items to **increase gold per click**
+- Unlock new **cosmetic backgrounds** as you progress
+
+The game focuses on **incremental progression** and rewards long-term play.
 
 ---
 
 ## Leveling System
 
-The game features a **level-based progression system**.
-
-- Completing repairs grants experience
-- Gaining experience increases your **blacksmith level**
-- Each new level:
-  - Makes smithing easier
-  - Improves efficiency
-  - Unlocks new backgrounds (forges)
-
-Higher levels represent your growing skill and reputation as a blacksmith.
+- Earn experience by crafting and repairing tools
+- Level up to **increase efficiency** and **unlock new backgrounds**
+- Each level shows your growth from a humble village blacksmith to a respected craftsman
 
 ---
 
-## Backgrounds (Forges)
+## Backgrounds
 
-Backgrounds represent different **forges** you can work in.
-
-- New backgrounds are unlocked by reaching higher levels
-- Each forge provides gameplay adventages:
-  - Faster repairs
-  - Better efficiency
-  - Improved working conditions
-
-Progressing through backgrounds visually and mechanically reflects your journey
-from a poor village blacksmith to a respected craftsman.
+- Visual representation of your forge
+- Unlocked as you level up
+- **Cosmetic only** — they don’t affect gameplay
 
 ---
 
-## How to Run the Project
+## How to Run Locally
 
-This project is **not published on Google Play** (I cannot currently afford the
-developer licence).
+This project is **not on Google Play** yet. To run it locally:
 
-To run the game locally:
-
-1. Install **Dart**
-2. Install **Flutter**
-3. Clone this repository
-4. Run:
+1. Install **Dart** and **Flutter**
+2. Clone this repository:
    ```bash
-   flutter pub get
-   flutter run
+   git clone <your-repo-url>
